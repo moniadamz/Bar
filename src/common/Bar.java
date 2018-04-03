@@ -1,12 +1,11 @@
+package common;
 import java.util.ArrayList;
 
 public class Bar {
 	ArrayList<Cliente> clientes;
-	ArrayList<Socio> socios;
 
 	public Bar() {
 		clientes = new ArrayList<>();
-		socios = new ArrayList<>();
 	}
 
 	public void registraCliente(Cliente cliente) {
@@ -14,7 +13,7 @@ public class Bar {
 	}
 
 	public void registraSocio(Socio socio) {
-		socios.add(socio);
+		clientes.add(socio);
 	}
 
 	public String pessoasNoBar() {
@@ -26,7 +25,7 @@ public class Bar {
 	}
 
 	public int quantidadePessoasNoBar() {
-		return socios.size() + clientes.size();
+		return clientes.size();
 	}
 
 	public boolean estaNoBar(int cpf) {
@@ -48,7 +47,7 @@ public class Bar {
 				homens++;
 			}
 		}
-		return "Homens: " + (homens * 100) / clientes.size()  + "%\nMulheres: " + (mulheres * 100) / clientes.size() + "%";
+		return "Homens: " + (homens * 100) / clientes.size()  + "%\n Mulheres: " + (mulheres * 100) / clientes.size() + "%";
 	}
 
 }

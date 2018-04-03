@@ -1,4 +1,4 @@
-
+package common;
 public class Socio extends Cliente {
 	private int numSocio;
 	private int milhagens;
