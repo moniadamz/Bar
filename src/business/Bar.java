@@ -1,4 +1,5 @@
 package business;
+
 import java.util.ArrayList;
 
 public class Bar {
@@ -9,7 +10,7 @@ public class Bar {
 		clientesNoBar = new ArrayList<>();
 		esteveNoBar = new ArrayList<>();
 	}
-	
+
 	public void registraCliente(Cliente cliente) {
 		clientesNoBar.add(cliente);
 		esteveNoBar.add(cliente);
@@ -23,7 +24,7 @@ public class Bar {
 	public void saidaCliente(Cliente cliente) {
 		clientesNoBar.remove(cliente);
 	}
-	
+
 	public String pessoasNoBar() {
 		String lista = "";
 		for (Cliente c : clientesNoBar) {
@@ -36,26 +37,35 @@ public class Bar {
 		return clientesNoBar.size();
 	}
 
-	public boolean estaNoBar(int cpf) {
+	public String getCliente(int cpf) {
+		String cliente = "";
 		for (Cliente c : clientesNoBar) {
 			if (c.getCpf() == cpf) {
-				return true;
+				cliente = "Nome: " + c.getNome() + "\nGênero: " + c.getGenero() + "\nIdade: " + c.getIdade();
+				return cliente;
 			}
 		}
-		return false;
+		return cliente;
 	}
-	
-	public String numPessoasPorGenero() {
-		int homens = 0;
+
+	public int numMulheresNoBar() {
 		int mulheres = 0;
 		for (Cliente c : clientesNoBar) {
-			if(c.getGenero() == "fem") {
-				mulheres ++;
-			} else {
+			if (c.getGenero() == "Feminino") {
+				mulheres++;
+			}
+		}
+		return mulheres;
+	}
+
+	public int numHomensNoBar() {
+		int homens = 0;
+		for (Cliente c : clientesNoBar) {
+			if (c.getGenero() == "Masculino") {
 				homens++;
 			}
 		}
-		return "Homens: " + (homens * 100) / clientesNoBar.size()  + "%\n Mulheres: " + (mulheres * 100) / clientesNoBar.size() + "%";
+		return homens;
 	}
 
 }

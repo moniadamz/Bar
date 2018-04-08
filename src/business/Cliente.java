@@ -1,4 +1,4 @@
-package common;
+package business;
 
 public class Cliente {
 	private String nome, genero;

@@ -1,10 +1,10 @@
-package Teste;
+package tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import common.Cliente;
+import business.Cliente;
 
 class ClienteTeste {
 	Cliente cliente;
