@@ -1,6 +1,5 @@
 package uinterface;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,6 +9,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class Relatorio extends JFrame {
 
 	private JPanel contentPane;
@@ -69,8 +69,8 @@ public class Relatorio extends JFrame {
 		mulheres.setBounds(90, 68, 86, 20);
 		contentPane.add(mulheres);
 		mulheres.setColumns(10);
-		String noMulheres = ""+ TelaPrincipal.getBar().numMulheresNoBar()+ "%";
-		homens.setText(noMulheres);
+		String noMulheres = ""+ TelaPrincipal.getBar().numMulheresNoBar()*100/TelaPrincipal.getBar().quantidadePessoasNoBar()+ "%";
+		mulheres.setText(noMulheres);
 
 		
 		homens = new JTextField();
@@ -78,7 +78,7 @@ public class Relatorio extends JFrame {
 		homens.setBounds(90, 113, 86, 20);
 		contentPane.add(homens);
 		homens.setColumns(10);
-		String noHomens = "" + TelaPrincipal.getBar().numHomensNoBar()+ "%";
+		String noHomens = "" + TelaPrincipal.getBar().numHomensNoBar()*100/TelaPrincipal.getBar().quantidadePessoasNoBar()+ "%";
 		homens.setText(noHomens);
 		
 		noPessoas = new JTextField();

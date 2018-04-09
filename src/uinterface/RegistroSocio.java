@@ -110,7 +110,7 @@ public class RegistroSocio extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int _cpf = Integer.parseInt(cpf.getText());
 				int _idade = Integer.parseInt(idade.getText());
-				String _genero = genero.toString();
+				String _genero = genero.getSelectedItem().toString();
 				int _noSocio = Integer.parseInt(noSocio.getText());
 				Socio cliente = new Socio(nome.getText(),_genero,_cpf,_idade,_noSocio);
 				TelaPrincipal.getBar().registraCliente(cliente);

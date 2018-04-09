@@ -51,7 +51,7 @@ public class Bar {
 	public int numMulheresNoBar() {
 		int mulheres = 0;
 		for (Cliente c : clientesNoBar) {
-			if (c.getGenero() == "Feminino") {
+			if (c.getGenero().equals("Feminino")) {
 				mulheres++;
 			}
 		}
@@ -61,7 +61,7 @@ public class Bar {
 	public int numHomensNoBar() {
 		int homens = 0;
 		for (Cliente c : clientesNoBar) {
-			if (c.getGenero() == "Masculino") {
+			if (c.getGenero().equals("Masculino")) {
 				homens++;
 			}
 		}
