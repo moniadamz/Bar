@@ -1,29 +1,15 @@
-package Teste;
+package tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import common.Bar;
-import common.Cliente;
-import common.Socio;
+import business.Bar;
+import business.Cliente;
+import business.Socio;
 
 public class BarTeste {
 	Bar bar;
-
-	@Test
-	public void verificaEstaNoBar() {
-		bar = new Bar();
-		Socio socio = new Socio("Maria", "fem", 15646046, 44, 9879701);
-		bar.registraSocio(socio);
-		assertEquals(true, bar.estaNoBar(15646046));
-	}
-	
-	@Test
-	public void verificaNaoEstaNoBar() {
-		bar = new Bar();
-		assertEquals(false, bar.estaNoBar(15646046));
-	}
 
 	@Test
 	public void verificaQuantidadePessoasNoBar() {
