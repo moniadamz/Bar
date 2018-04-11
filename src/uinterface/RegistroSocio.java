@@ -47,7 +47,7 @@ public class RegistroSocio extends JFrame {
 	 */
 	public RegistroSocio() {
 		setTitle("Registrar S\u00F3cio");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 399, 276);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
