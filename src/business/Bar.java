@@ -32,6 +32,14 @@ public class Bar {
 		}
 		return lista;
 	}
+	
+	public String estiveramNoBar() {
+		String lista = "";
+		for (Cliente c : clientesNoBar) {
+			lista += c.getNome() + "\n";
+		}
+		return lista;
+	}
 
 	public int quantidadePessoasNoBar() {
 		return clientesNoBar.size();
@@ -41,7 +49,7 @@ public class Bar {
 		String cliente = "";
 		for (Cliente c : clientesNoBar) {
 			if (c.getCpf() == cpf) {
-				cliente = "Nome: " + c.getNome() + "\nGênero: " + c.getGenero() + "\nIdade: " + c.getIdade();
+				cliente = "Nome: " + c.getNome() + "\nGï¿½nero: " + c.getGenero() + "\nIdade: " + c.getIdade();
 				return cliente;
 			}
 		}
