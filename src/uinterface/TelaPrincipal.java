@@ -5,9 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import business.Bar;
+import persistence.RegistroClientes;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
@@ -50,7 +52,7 @@ public class TelaPrincipal {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 355, 264);
+		frame.setBounds(100, 100, 355, 298);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -95,8 +97,35 @@ public class TelaPrincipal {
 			}
 		});
 		btnRelatorio.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnRelatorio.setBounds(95, 131, 146, 23);
+		btnRelatorio.setBounds(95, 167, 146, 23);
 		frame.getContentPane().add(btnRelatorio);
+		
+		JButton btnCheckout = new JButton("Checkout Cliente");
+		btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnCheckout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RegistroSaida saida = new RegistroSaida();
+				saida.setVisible(true);
+			}
+		});
+		btnCheckout.setBounds(95, 131, 146, 23);
+		frame.getContentPane().add(btnCheckout);
+		
+		JButton btnFechar = new JButton("Fechar Bar");
+		btnFechar.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RegistroClientes rc = new RegistroClientes();
+					rc.registrar();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				frame.dispose();
+			}
+		});
+		btnFechar.setBounds(95, 201, 146, 23);
+		frame.getContentPane().add(btnFechar);
 	}
 
 }

@@ -21,14 +21,44 @@ public class Bar {
 		esteveNoBar.add(socio);
 	}
 
-	public void saidaCliente(Cliente cliente) {
-		clientesNoBar.remove(cliente);
+	public String saidaCliente(int cpf) {
+		String text = "";
+		for (Cliente c : clientesNoBar) {
+			if (c.getCpf() == cpf) {
+				clientesNoBar.remove(c);
+				text += "Concluído!";
+				break;
+			}
+		}
+		return text;
 	}
 
+	public String pessoasEstiveramNoBar() {
+		String lista = "";
+		for (Cliente c : esteveNoBar) {
+			if (c instanceof Socio) {
+				lista += "Nome: " + c.getNome() + ", CPF:" + c.getCpf() + ", nº Sócio: " + ((Socio) c).getNumSocio()
+						+ "\n";
+				continue;
+			}
+			if (c instanceof Cliente) {
+				lista += "Nome: " + c.getNome() + ", CPF:" + c.getCpf() + "\n";
+			}
+		}
+		return lista;
+	}
+	
 	public String pessoasNoBar() {
 		String lista = "";
 		for (Cliente c : clientesNoBar) {
-			lista += c.getNome() + "\n";
+			if (c instanceof Socio) {
+				lista += "Nome: " + c.getNome() + ", CPF:" + c.getCpf() + ", nº Sócio: " + ((Socio) c).getNumSocio()
+						+ "\n";
+				continue;
+			}
+			if (c instanceof Cliente) {
+				lista += "Nome: " + c.getNome() + ", CPF:" + c.getCpf() + "\n";
+			}
 		}
 		return lista;
 	}
@@ -41,8 +71,14 @@ public class Bar {
 		String cliente = "";
 		for (Cliente c : clientesNoBar) {
 			if (c.getCpf() == cpf) {
-				cliente = "Nome: " + c.getNome() + "\nGênero: " + c.getGenero() + "\nIdade: " + c.getIdade();
-				return cliente;
+				if (c instanceof Socio) {
+					cliente += "Nome: " + c.getNome() + ", CPF: " + c.getCpf() + ", nº Sócio: "
+							+ ((Socio) c).getNumSocio();
+					continue;
+				}
+				if (c instanceof Cliente) {
+					cliente += "Nome: " + c.getNome() + ", CPF: " + c.getCpf();
+				}
 			}
 		}
 		return cliente;
